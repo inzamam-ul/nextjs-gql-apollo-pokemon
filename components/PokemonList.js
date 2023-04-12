@@ -57,8 +57,8 @@ export default function PokemonList() {
 
   useEffect(() => {
     if (page) {
+      if (pokemons.length >= 20 * pageNumber) return;
       if (pokemons.length <= 20 * pageNumber && pokemons.length >= 60) {
-        console.log("loadMorePosts", page);
         loadMorePosts(pageNumber);
         return;
       }
@@ -66,10 +66,7 @@ export default function PokemonList() {
   }, [page]);
 
   useEffect(() => {
-    console.log("pokemons.length", pokemons.length);
-    console.log(page);
     if (pokemons.length >= 20 && pageNumber) {
-      console.log("updating");
       setCurrentPokemons(
         pokemons.slice((pageNumber - 1) * 20, pageNumber * 20)
       );

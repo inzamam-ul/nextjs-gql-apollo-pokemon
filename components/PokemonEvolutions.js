@@ -30,7 +30,7 @@ const PokemonEvolutions = ({ pokemon }) => {
   const handleClose = () => {
     setOpen(false);
   };
-  console.log(data?.pokemon);
+
   return (
     <Box sx={{ display: "flex", justifyContent: "flex-end", marginTop: 4 }}>
       <Button variant="outlined" onClick={handleClickOpen}>
