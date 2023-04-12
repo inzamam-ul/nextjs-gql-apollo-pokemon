@@ -66,11 +66,17 @@ const PokemonEvolutions = ({ pokemon }) => {
             )}
             {!loading &&
               data &&
-              [pokemon, ...data.pokemon.evolutions].map((evolution, index) => (
-                <React.Fragment key={index}>
-                  <EvolutionItem evolution={evolution} />
-                </React.Fragment>
-              ))}
+              data.pokemon?.evolutions &&
+              [pokemon, ...data?.pokemon?.evolutions].map(
+                (evolution, index) => (
+                  <React.Fragment key={index}>
+                    <EvolutionItem evolution={evolution} />
+                  </React.Fragment>
+                )
+              )}
+            {!loading && data && !data.pokemon?.evolutions && (
+              <>No evolutions available</>
+            )}
           </Stack>
         </DialogContent>
         <DialogActions>

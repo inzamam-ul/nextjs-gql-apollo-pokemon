@@ -140,10 +140,21 @@ export default function PokemonList() {
             </Card>
           </Grid>
         ))}
-        {!currentPokemons.length && !loading && (
-          <ErrorMessage>No more pokemon available</ErrorMessage>
-        )}
       </Grid>
+      {!currentPokemons.length && !loading && (
+        <Typography
+          sx={{
+            textAlign: "center",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+          variant="h5"
+          component="div"
+        >
+          No more pokemon available
+        </Typography>
+      )}
 
       <Pagination
         sx={{
